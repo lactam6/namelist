@@ -13,6 +13,14 @@ function csv_(datapath){
     req.send();
 }
 function print_table(data){
-    console.log(data[116])
+  for(let i=0;i<data.length;i++){
+    let row = document.createElement("tr");
+    for(let j=0;j<data[i].length;j++){
+      let child = document.createElement("td");
+      child.innerHTML = data[i][j];
+      row.appendChild(child);
+    }
+    document.getElementById("csv").appendChild(row);
+  }
 }
 csv_("namelist.csv");
