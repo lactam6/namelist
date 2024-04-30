@@ -20,7 +20,7 @@ function print_table(data){
       let row = document.createElement("tr");
       for(let j = 0;j < data[0].length;j++){
         let cel = document.createElement("td");
-        cel.innerHTML = '<p class="text">' + data[i][j] + '</class>';
+        cel.innerHTML = data[i][j];
         row.appendChild(cel);
       }
       tbd.appendChild(row);
