@@ -3,7 +3,7 @@ function csv_(datapath){
     req.addEventListener("load", (event) =>{
       const response = event.target.responseText;
       let dataArray = [];
-      const dataString = response.split('\r\n');
+      const dataString = response.split('\n');
       for(let i=0;i<dataString.length;i++){
         dataArray.push(dataString[i].split(','));
       }
