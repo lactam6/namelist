@@ -14,13 +14,12 @@ function csv_(datapath){
 }
 function print_table(data){
   for(let i=0;i<data.length;i++){
-    let row = document.createElement("tr");
+    let row = "<tr>";
     for(let j=0;j<data[i].length;j++){
-      let child = document.createElement("td");
-      child.innerHTML = data[i][j];
-      row.appendChild(child);
+      row = row + "<td>" + data[i][j] + "</td>";
     }
-    document.getElementById("csv").appendChild(row);
+    row = row + "</tr>";
+    document.getElementById("csv").innerHTML += row
   }
 }
 csv_("namelist.csv");
