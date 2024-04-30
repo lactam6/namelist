@@ -13,13 +13,20 @@ function csv_(datapath){
     req.send();
 }
 function print_table(data){
-  for(let i=0;i<data.length;i++){
-    let row = "<tr>";
-    for(let j=0;j<data[i].length;j++){
-      row = row + "<td>" + data[i][j] + "</td>";
+  let table = document.createElement("table");
+    table.setAttribute("id", "table");
+    let tbd = document.createElement("tbody");
+    for(let i = 0;i < data.length;i++){
+      let row = document.createElement("tr");
+      for(let j = 0;j < data[0].length;j++){
+        let cel = document.createElement("td");
+        cel.innerHTML = '<p class="text">' + data[i][j] + '</class>';
+        row.appendChild(cel);
+      }
+      tbd.appendChild(row);
     }
-    row = row + "</tr>";
-    document.getElementById("csv").innerHTML += row
-  }
+    table.appendChild(tbd);
+    table.setAttribute("border", "2");
+    document.getElementsByTagName("body")[0].appendChild(table);
 }
 csv_("namelist.csv");
